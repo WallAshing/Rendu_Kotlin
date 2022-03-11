@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Dummy Application</string>
+    <string name="hello_b_bou">Hello my Tea-Bebou !</string>
+    <string name="name">Favorite Tea Name</string>
+    <string name="hello">Hello with extra tea %s</string>
+</resources>

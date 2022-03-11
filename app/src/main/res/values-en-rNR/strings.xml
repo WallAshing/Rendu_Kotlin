@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Dummy Nauru Application</string>
+    <string name="hello_b_bou">Hello Nauru-Bebou !</string>
+    <string name="name">Nauruan Name</string>
+    <string name="hello">Naurua Hello %s</string>
+</resources>
