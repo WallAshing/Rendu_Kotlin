@@ -1,31 +1,37 @@
 package fr.iim.myapplication
 
+import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import java.lang.RuntimeException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HelloFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HelloFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var listener: HelloFragmentListener
+
+    private var firstName: String? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is HelloFragmentListener){
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement HomeFragment.HomeFragmentInterface")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            firstName = it.getString(ARG_FIRST_NAME)
         }
     }
 
@@ -37,22 +43,43 @@ class HelloFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_hello, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val editTextCity = view.findViewById<EditText>(R.id.editTextCity)
+        val searchButton = view.findViewById<Button>(R.id.searchButton)
+
+        if(firstName != null)
+            view.findViewById<TextView>(R.id.fragHelloTextView).text = getString(R.string.hello, firstName)
+        else
+            view.findViewById<TextView>(R.id.fragHelloTextView).text = "No firstName"
+
+        editTextCity.addTextChangedListener(object: TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                searchButton.isEnabled = editTextCity.text.isNotEmpty()
+            }
+        })
+
+        searchButton.setOnClickListener {
+            listener.OnMapClickListener(editTextCity.text.toString())
+        }
+
+    }
+
+    interface HelloFragmentListener {
+        fun OnMapClickListener(city: String)
+    }
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HelloFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+        private const val ARG_FIRST_NAME = "firstName"
+
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(firstName: String) =
             HelloFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_FIRST_NAME, firstName)
                 }
             }
     }

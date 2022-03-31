@@ -4,4 +4,7 @@
     <string name="hello_b_bou">Hello my Tea-Bebou !</string>
     <string name="name">Favorite Tea Name</string>
     <string name="hello">Hello with extra tea %s</string>
+    <string name="login">Login</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

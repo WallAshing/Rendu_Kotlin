@@ -4,4 +4,5 @@
     <string name="hello_b_bou">Hello Nauru-Bebou !</string>
     <string name="name">Nauruan Name</string>
     <string name="hello">Naurua Hello %s</string>
+    <string name="login">Nauruan Login</string>
 </resources>

@@ -20,20 +20,19 @@ class MainActivityOld : AppCompatActivity() {
 //        findViewById<TextView>(R.id.main_content).setText(R.string.hello_b_bou)
 //        findViewById<TextView>(R.id.main_content).text = getString(R.string.hello_b_bou)
 //        val textFirstName: TextView = findViewById(R.id.helloFirstName)
-        val editTextFirstName: EditText = findViewById(R.id.editTextFirstName)
-        val edittextButton: Button = findViewById(R.id.editTextButton)
+//        val editTextFirstName: EditText = findViewById(R.id.editTextFirstName)
+//        val edittextButton: Button = findViewById(R.id.editTextButton)
 
 
 
 //        textFirstName.visibility = View.INVISIBLE
 
-        edittextButton.setOnClickListener {
-
-            Toast.makeText(applicationContext, getString(R.string.hello, editTextFirstName.text) , Toast.LENGTH_SHORT).show()
-
-            startActivity(HelloActivity.newInstance(this, editTextFirstName.text.toString()))
-        }
-
+//        edittextButton.setOnClickListener {
+//
+//            Toast.makeText(applicationContext, getString(R.string.hello, editTextFirstName.text) , Toast.LENGTH_SHORT).show()
+//
+//            startActivity(HelloActivity.newInstance(this, editTextFirstName.text.toString()))
+//        }
 
     }
 }

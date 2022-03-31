@@ -19,19 +19,35 @@
         >
 
         <EditText
-            android:id="@+id/editTextFirstName"
+            android:id="@+id/editTextEmail"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="@string/name"
+            android:hint="@string/email"
             android:importantForAutofill="no"
-            android:inputType="textPersonName" />
+            android:inputType="textEmailAddress" />
 
-        <Button
-            android:id="@+id/editTextButton"
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAccept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/login" />
 
     </LinearLayout>
 
