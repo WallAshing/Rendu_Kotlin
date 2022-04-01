@@ -17,7 +17,7 @@ import java.lang.RuntimeException
 class HelloFragment : Fragment() {
     private lateinit var listener: HelloFragmentListener
 
-    private var firstName: String? = null
+    private var email: String? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,7 +31,7 @@ class HelloFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            firstName = it.getString(ARG_FIRST_NAME)
+            email = it.getString(ARG_FIRST_NAME)
         }
     }
 
@@ -48,8 +48,8 @@ class HelloFragment : Fragment() {
         val editTextCity = view.findViewById<EditText>(R.id.editTextCity)
         val searchButton = view.findViewById<Button>(R.id.searchButton)
 
-        if(firstName != null)
-            view.findViewById<TextView>(R.id.fragHelloTextView).text = getString(R.string.hello, firstName)
+        if(email != null)
+            view.findViewById<TextView>(R.id.fragHelloTextView).text = getString(R.string.hello, email)
         else
             view.findViewById<TextView>(R.id.fragHelloTextView).text = "No firstName"
 
@@ -76,10 +76,10 @@ class HelloFragment : Fragment() {
         private const val ARG_FIRST_NAME = "firstName"
 
         @JvmStatic
-        fun newInstance(firstName: String) =
+        fun newInstance(email: String) =
             HelloFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_FIRST_NAME, firstName)
+                    putString(ARG_FIRST_NAME, email)
                 }
             }
     }
